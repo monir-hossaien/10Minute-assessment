@@ -32,7 +32,7 @@ export async function generateMetadata({
         const title = data.seo?.metaTitle || data.title || "Course Title";
         const description = data.seo?.metaDescription || data.description || "Course description not available.";
         const image = data.seo?.image || data.media?.thumbnail || "/default-og.png";
-        const url = `http://localhost:3000/${lang}/product/${slug}`;
+        const url = `https://10-minute-assessment.vercel.app/${lang}/product/${slug}`;
 
         return {
             title,
