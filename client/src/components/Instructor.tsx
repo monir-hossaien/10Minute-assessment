@@ -20,14 +20,14 @@ const Instructor = ({ value }: Props) => {
     const { image, name, description } = instructor;
 
     return (
-        <section className="container py-10" aria-labelledby="instructor-heading">
+        <section className="container py-5 md:py-10" aria-labelledby="instructor-heading">
             <h2
                 id="instructor-heading"
                 className="font-semibold text-2xl leading-[32px] text-[#111827] mb-5"
             >
                 {value?.name}
             </h2>
-            <div className="border border-gray-200 rounded-md px-5 py-8 flex items-center gap-5">
+            <div className="md:border border-gray-200 rounded-md md:px-4 md:py-8 flex items-center gap-5">
                 <Image
                     src={image}
                     width={80}

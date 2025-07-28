@@ -1,7 +1,7 @@
 "use client"
 
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import {useState} from "react";
+import { useState} from "react";
 import {IoMdPlay} from "react-icons/io";
 import {MediaValue} from "@/types/type";
 import Image from "next/image";
@@ -11,6 +11,7 @@ type Props = {
 };
 
 const Trailer = ({values}: Props) => {
+
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const currentItem = values[currentIndex];
@@ -23,8 +24,9 @@ const Trailer = ({values}: Props) => {
         setCurrentIndex((prev) => (prev === values.length - 1 ? 0 : prev + 1));
     };
 
+
     return (
-        <div className="max-w-xl mx-auto p-1.5">
+        <div className="max-w-xl mx-auto py-5 md:p-1.5">
             {/* Preview */}
             <div className="relative aspect-video bg-black overflow-hidden">
                 {currentItem.resource_type === "image" ? (

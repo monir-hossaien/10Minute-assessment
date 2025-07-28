@@ -6,7 +6,7 @@ type Props = {
 }
 
 
-const Header = ({value}: Props) => {
+const Hero = ({value}: Props) => {
     return (
         <div className="container px-4 md:px-0">
             <div className="space-y-4 md:space-y-5">
@@ -21,4 +21,4 @@ const Header = ({value}: Props) => {
     );
 };
 
-export default Header;
+export default Hero;

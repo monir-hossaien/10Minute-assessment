@@ -18,7 +18,7 @@ const CourseLaidOut = ({ value }: Props) => {
 
     return (
         <section aria-labelledby="course-layout-heading" className="mb-8">
-            {/* Semantic heading with id for aria-labelledby */}
+
             <h3
                 id="course-layout-heading"
                 className="text-2xl font-semibold mb-4"
@@ -28,8 +28,8 @@ const CourseLaidOut = ({ value }: Props) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-black rounded-md px-5 py-8">
                 {feature.map(({ id, icon, title, subtitle }) => (
-                    // Using <article> for each feature, good for assistive tech
-                    <article key={id} className="flex items-start gap-3 p-3 rounded-md">
+
+                    <article key={id} className="flex items-start gap-3 md:p-3 rounded-md">
                         <div className="relative w-10 h-10 min-w-[40px]">
                             <Image
                                 src={icon}

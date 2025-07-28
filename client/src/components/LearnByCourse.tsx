@@ -19,7 +19,7 @@ const LearnByCourse = ({ value }: Props) => {
     return (
         <div className="py-5">
             <h1 className="mb-4 font-semibold text-2xl text-[#111827] leading-[32px]">{value?.name}</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 border border-gray-200 rounded-md p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:border border-gray-200 rounded-md md:p-8">
                 {pointers.map(({ id, text }) => (
                     <div key={id} className="flex gap-3 items-start">
                         <div className="p-1">

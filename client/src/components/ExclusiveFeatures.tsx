@@ -21,12 +21,12 @@ const ExclusiveFeatures = ({ value }: Props) => {
         <section aria-labelledby="exclusive-features-heading" className="py-5">
             <h2
                 id="exclusive-features-heading"
-                className="mb-6 font-semibold text-2xl text-[#111827] leading-[32px]"
+                className="md:mb-6 font-semibold text-2xl text-[#111827] leading-[32px]"
             >
                 {value?.name}
             </h2>
 
-            <div className="border border-gray-200 divide-y divide-gray-300 px-6">
+            <div className="md:border border-gray-200 divide-y divide-gray-300 md:px-6">
                 {exclusiveFeatures.map(({ id, title, file_type, file_url, checklist }) => (
                     <article key={id} className="py-6">
                         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">

@@ -32,20 +32,20 @@ const CourseDetails = ({value}: Props) => {
 
     return (
         <div className="py-5 max-h-fit">
-            <h3 className="text-2xl font-semibold mb-6">{value?.name}</h3>
+            <h3 className="text-2xl font-semibold mb:mb-6">{value?.name}</h3>
 
-            <div className="divide-y divide-gray-300 divide-dotted rounded-md border border-gray-200 px-6">
+            <div className="divide-y divide-gray-300 divide-dotted rounded-md md:border border-gray-200 md:px-6">
                 {details.map((item) => {
                     const {id, title, description} = item
                     const isOpen = activeIndex === id;
                     return (
-                        <div key={id} className="py-5 transition-all duration-200">
-                            {/* Header */}
+                        <div key={id} className="py-3 md:py-5 transition-all duration-200">
+                            {/* Hero */}
                             <button
                                 onClick={() => toggleAccordion(id)}
                                 className="flex w-full items-center justify-between text-left cursor-pointer group min-h-[30px]"
                             >
-                                <div className="text-lg font-medium text-gray-800">
+                                <div className="text-sm md:text-lg text-gray-800">
                                     {parse(title)}
                                 </div>
                                 <span
@@ -61,7 +61,7 @@ const CourseDetails = ({value}: Props) => {
                             {/* Description */}
                             {isOpen && (
                                 <div
-                                    className="mt-3 text-gray-700 leading-relaxed space-y-2"
+                                    className="mt-3 text-gray-700 leading-relaxed space-y-2 px-4"
                                 >
                                     {parse(description)}
                                 </div>
