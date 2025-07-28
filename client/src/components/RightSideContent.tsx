@@ -3,11 +3,10 @@ import dynamic from "next/dynamic";
 
 import { TbCurrencyTaka } from "react-icons/tb";
 
-// Dynamically import components with SSR support
-
 import Button from "@/components/Button";
 import CheckLists from "@/components/CheckLists";
-const Trailer = dynamic(()=> import("@/components/Trailer"))
+import {Suspense} from "react";
+const Trailer = dynamic(()=> import("@/components/Trailer"), {ssr: false});
 
 
 const RightSideContent = ({ data }: any) => {
@@ -17,7 +16,9 @@ const RightSideContent = ({ data }: any) => {
             <div className="bg-white md:border border-gray-300 h-fit">
                 {/* Desktop Trailer */}
                 <div>
-                    <Trailer values={data?.media} />
+                    <Suspense fallback="loading...">
+                        <Trailer values={data?.media} />
+                    </Suspense>
                 </div>
 
                 {/* Sticky Pricing Box */}
