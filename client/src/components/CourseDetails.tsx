@@ -32,7 +32,7 @@ const CourseDetails = ({value}: Props) => {
 
     return (
         <div className="py-5 max-h-fit">
-            <h3 className="text-2xl font-semibold mb:mb-6">{value?.name}</h3>
+            <h3 className="text-2xl font-semibold md:mb-6">{value?.name}</h3>
 
             <div className="divide-y divide-gray-300 divide-dotted rounded-md md:border border-gray-200 md:px-6">
                 {details.map((item) => {
