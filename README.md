@@ -11,8 +11,7 @@ This is a responsive product landing page built with **Next.js**, **Tailwind CSS
 ## Getting Started
 
 ```
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+https://github.com/monir-hossaien/10Minute-assessment.git
 npm install
 npm run dev
 

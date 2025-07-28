@@ -1,62 +1,63 @@
 import { IoMdCheckmark } from "react-icons/io";
 import Image from "next/image";
-import {ExclusiveFeatureSValue} from "@/types/type";
+import { ExclusiveFeatureSValue } from "@/types/type";
 
 type Props = {
-    value?: exclusiveFeaturesProps;
+    value?: ExclusiveFeaturesProps;
 };
 
-type exclusiveFeaturesProps = {
+type ExclusiveFeaturesProps = {
     type?: string;
     name?: string;
     values?: ExclusiveFeatureSValue[];
 };
 
-const ExclusiveFeatures = ({value}: Props) => {
-
+const ExclusiveFeatures = ({ value }: Props) => {
     if (!value || !value.values || value.values.length === 0) return null;
 
     const exclusiveFeatures = value.values;
 
     return (
-        <div className="py-5">
-            <h1 className="mb-6 font-semibold text-2xl text-[#111827] leading-[32px]">
+        <section aria-labelledby="exclusive-features-heading" className="py-5">
+            <h2
+                id="exclusive-features-heading"
+                className="mb-6 font-semibold text-2xl text-[#111827] leading-[32px]"
+            >
                 {value?.name}
-            </h1>
+            </h2>
 
             <div className="border border-gray-200 divide-y divide-gray-300 px-6">
                 {exclusiveFeatures.map(({ id, title, file_type, file_url, checklist }) => (
-                    <div key={id} className="py-6">
-                        <div>
-                            <div className="flex justify-between items-center">
-                                <div>
-                                    <h2 className="mb-2">{title}</h2>
-                                    <ul className="space-y-3 w-full md:w-2/3">
-                                        {checklist.map((point, index) => (
-                                            <li key={index} className="flex gap-2 items-start">
-                                                <IoMdCheckmark className="text-[#6294F8] w-5 h-5 mt-1"/>
+                    <article key={id} className="py-6">
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                            <div className="md:w-2/3">
+                                <h3 className="mb-2 text-lg font-semibold">{title}</h3>
+                                {checklist && checklist.length > 0 && (
+                                    <ul className="space-y-3">
+                                        {checklist.map((point, idx) => (
+                                            <li key={point ?? idx} className="flex gap-2 items-start">
+                                                <IoMdCheckmark className="text-[#6294F8] w-5 h-5 mt-1" />
                                                 <span>{point}</span>
                                             </li>
                                         ))}
                                     </ul>
-                                </div>
-                                <div className="w-full md:w-1/3">
-                                    <Image
-                                        src={file_url}
-                                        alt={file_type}
-                                        width={200}
-                                        height={200}
-                                        className="object-contain"
-                                        placeholder="blur"
-                                        blurDataURL="/blur.webp"
-                                    />
-                                </div>
+                                )}
+                            </div>
+                            <div className="md:w-1/3 w-full">
+                                <Image
+                                    src={file_url}
+                                    alt={`Preview of ${title}`}
+                                    width={200}
+                                    height={200}
+                                    className="object-contain"
+                                    loading="lazy"
+                                />
                             </div>
                         </div>
-                    </div>
+                    </article>
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 

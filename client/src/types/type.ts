@@ -3,6 +3,11 @@ export type Section = {
     type?: string;
 }
 
+export type HeaderValue = {
+    title: string;
+    description: string;
+}
+
 export type InstructorValue = {
     description: string;
     image: string;
@@ -42,5 +47,12 @@ export type CheckListValue= {
     color: string;
     icon: string;
     text: string;
+};
+
+export type MediaValue= {
+    name: string;
+    resource_type: string;
+    resource_value: string;
+    thumbnail_url: string;
 };
 
