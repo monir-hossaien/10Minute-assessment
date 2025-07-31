@@ -27,37 +27,26 @@ export async function generateMetadata({
         const { slug, lang } = await params;
         const data = await getCourse(slug, lang);
 
-        const title = data.seo?.metaTitle || data.title || "Course Title";
-        const description = data.seo?.metaDescription || data.description || "Course description not available.";
-        const image = data.seo?.image || data.media?.thumbnail || "/default-og.png";
-        const url = `https://10-minute-assessment.vercel.app/${lang}/product/${slug}`;
+        const seo = data?.seo
 
         return {
-            title,
-            description,
+            title: seo?.title,
+            description: seo?.description,
+            keywords: Array.isArray(seo?.keywords) ? seo.keywords.join(', ') : seo?.keywords,
             openGraph: {
-                title,
-                description,
-                url,
-                images: [
-                    {
-                        url: image,
-                        width: 1200,
-                        height: 630,
-                        alt: title,
-                    },
-                ],
-                type: "website",
-                locale: lang,
+                title: seo?.title || data?.title,
+                description: seo?.description || data?.description,
+                images: seo?.defaultMeta.find((meta: { value: string, content: string}) => meta.value === 'og:image')?.content || data?.media[0].thumbnail_url,
+                url: seo?.defaultMeta.find((meta: { value: string, content: string}) => meta.value === 'og:url')?.content || "https://10minuteschool.com/product/ielts-course",
+                locale: seo?.defaultMeta.find((meta: { value: string, content: string}) => meta.value === 'og:locale')?.content || "en_US",
             },
-            twitter: {
-                card: "summary_large_image",
-                title,
-                description,
-                images: [image],
-            },
-        };
-    } catch (error) {
+            twitter:{
+                title: seo?.title,
+                description: seo?.description,
+                images: seo?.defaultMeta.find((meta: { value: string, content: string}) => meta.value === 'og:image')?.content,
+            }
+        }
+    }catch (error) {
         console.error("Error generating metadata:", error);
         return {
             title: "Course Not Found",

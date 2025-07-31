@@ -13,7 +13,7 @@ const RightSideContent = ({ data }: any) => {
 
     return (
         <div className="w-full md:w-4/12 md:absolute top-30 right-9 z-0">
-            <div className="bg-white md:border border-gray-300 h-fit">
+            <div className="bg-white md:border border-gray-300">
                 {/* Desktop Trailer */}
                 <div>
                     <Suspense fallback="loading...">
@@ -22,7 +22,7 @@ const RightSideContent = ({ data }: any) => {
                 </div>
 
                 {/* Sticky Pricing Box */}
-                <div className="md:px-4 py-6 space-y-4 bg-white sticky top-20">
+                <div className="md:px-4 py-6 space-y-4">
                     <h1 className="font-bold text-2xl flex items-center text-[#111827]">
                         <TbCurrencyTaka />
                         <span>1000</span>
